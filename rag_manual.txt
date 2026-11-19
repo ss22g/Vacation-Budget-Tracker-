@@ -1,0 +1,142 @@
+================================================================================
+AGRI-PREDICTOR PRO: COMPREHENSIVE KNOWLEDGE BASE & SYSTEM MANUAL (RAG DATASET)
+================================================================================
+
+[SECTION 1: SYSTEM IDENTITY & HIGH-LEVEL OVERVIEW]
+
+1.1 What is Agri-Predictor Pro?
+Agri-Predictor Pro is an enterprise-grade, artificial intelligence-driven agricultural decision-support web application and Progressive Web Application (PWA)[cite: 1, 13]. It is specifically engineered to empower Indian smallholder farmers, agronomists, village extension workers (Kisan Mitras), and Village Common Service Centres (CSCs).
+
+1.2 The Core Problem It Solves
+Traditional farming in India frequently depends on ancestral intuition, uncalibrated chemical fertilizer application, and speculative crop selection. This leads to severe soil degradation, excessive input costs, harvest failure under volatile climate patterns, and exploitation by intermediaries in wholesale markets. Agri-Predictor Pro transforms agricultural planning from speculative guesswork into an empirical, data-driven, and economically safeguarded science.
+
+1.3 System Mission & Vision
+- Zero Hardware Overhead: Farmers do not need expensive, fragile in-ground IoT sensors. Macro-climate data is ingested dynamically via virtual satellite cloud telemetry[cite: 13].
+- Algorithmic Transparency: Eliminates black-box ML predictions by deploying an Explainable AI (XAI) Matrix that itemizes exactly why a crop was selected[cite: 13].
+- Economic Viability: Every crop recommendation is directly synchronized with verified APMC Mandi wholesale rates and biological yield benchmarks to calculate real expected revenue[cite: 13].
+- Digital Inclusion: Fully bilingual interface (English and Hindi) with a zero-latency client-side Web Speech voice assistant that reads diagnoses aloud to neo-literate farmers[cite: 13].
+
+
+================================================================================
+[SECTION 2: CORE VALUE PROPOSITION & HOW THE AI HELPS USERS]
+
+2.1 Intelligent Strategic De-Risking
+- Top-3 Ranked Options: Rather than outputting a single rigid crop, the system produces a primary recommendation alongside two viable alternative crops, allowing farmers to adapt to seed availability and localized sowing windows (Kharif vs. Rabi)[cite: 13].
+- Probabilistic Confidence Scores: Softmax probability distributions indicate the mathematical margin of safety for each crop[cite: 13].
+
+2.2 Input Cost Optimization (Fertilizer Rationalization)
+- By comparing the user's soil chemical profile (Nitrogen, Phosphorus, Potassium, and pH) against scientific crop-specific agronomic benchmarks, the AI highlights exact nutrient excesses and deficiencies[cite: 13].
+- Prevents over-fertilization (saving farmers thousands of rupees on unnecessary urea/DAP purchases) while preventing crop starvation[cite: 13].
+
+2.3 Real-World Financial Safeguarding
+- Biological Yield Modeling: Applies realistic crop family harvest yields (e.g., 3,600 kg/ha for rice, 1,200 kg/ha for pulses, 35,000 kg/ha for banana) rather than flat, inaccurate estimates[cite: 13].
+- Direct Integration with Mandi Pricing: Computes gross revenue using official government APMC wholesale rates and Minimum Support Prices (MSP)[cite: 13].
+- 14-Day Micro-Trend Forecasting: Illustrates forward pricing trajectories and market sentiment (Bullish vs. Bearish) to guide post-harvest storage or immediate liquidation decisions[cite: 13].
+
+2.4 Acoustic Accessibility for Rural Smallholders
+- Farmers do not need to read dense analytical tables. Tapping the sound icon initiates a voice-guided consultation in clear Hindi or Indian English directly through the device speakers[cite: 13].
+
+
+================================================================================
+[SECTION 3: ARCHITECTURE & TECHNICAL SPECIFICATIONS]
+
+3.1 Machine Learning Core
+- Model Family: Random Forest Classifier (250-tree ensemble trained on regional soil and agro-climatic multi-class datasets)[cite: 12, 13].
+- Target Vector Classes (22 distinct crops): Apple, Banana, Blackgram, Chickpea, Coconut, Coffee, Cotton, Grapes, Jute, Kidneybeans, Lentil, Maize, Mango, Mothbeans, Mungbean, Muskmelon, Orange, Papaya, Pigeonpeas, Pomegranate, Rice, Watermelon.
+- Feature Space (7 input parameters):
+  1. Nitrogen (N): Available soil nitrogen in mg/kg (ratio 0-140)[cite: 13]
+  2. Phosphorus (P): Available soil phosphorus in mg/kg (ratio 5-145)[cite: 13]
+  3. Potassium (K): Available soil potassium in mg/kg (ratio 5-205)[cite: 13]
+  4. Soil Reaction (pH): Acidity/alkalinity scale (3.5 to 9.9)[cite: 13]
+  5. Atmospheric Temperature: Degrees Celsius (°C)[cite: 13]
+  6. Relative Atmospheric Humidity: Percentage (%)[cite: 13]
+  7. Cumulative Seasonal Rainfall: Millimeters (mm)[cite: 13]
+
+3.2 Virtual IoT Telemetry & Climate Resolver
+- Live Satellite Ingestion: Interfaces with WeatherAPI current telemetry using geo-query routing[cite: 13].
+- Geographic Alias Normalization: Auto-maps local administrative aliases (e.g., Prayagraj automatically resolves to regional weather station Allahabad)[cite: 13].
+- Resilient Agro-Climatic Baseline: If API connectivity fails or latency exceeds 2.5 seconds, the resolver immediately falls back to verified Indian Meteorological Department (IMD) regional baselines across zones (Prayagraj, Varanasi, Kanpur, Lucknow, Gorakhpur, Jhansi/Bundelkhand, Agra, Bihar Plain/Patna, Central MP/Bhopal, Punjab/Haryana)[cite: 13].
+
+3.3 Hybrid Economic & Mandi Engine
+- Data Gateway: Designed to ingest data via Data.gov.in / Agmarknet Resource API (Directorate of Marketing & Inspection, Ministry of Agriculture, Government of India)[cite: 13].
+- Decoupled High-Speed Local Cache (`mandi_cache.json`): Solves government server throttling and network timeouts by reading pre-ingested, verified APMC wholesale records and arrivals in under 10 milliseconds[cite: 13].
+- Autonomous Background Ingestion Worker (`fetch_mandi_worker.py`): Ingests daily market auction results with automated retries and browser-grade header simulation without interrupting user sessions[cite: 13].
+- Official Pricing Benchmarks: Incorporates active Government of India Minimum Support Prices (MSP) (e.g., Common Paddy MSP at Rs 2,441/Quintal, Wheat MSP at Rs 2,585/Quintal, Medium Staple Cotton MSP at Rs 8,267/Quintal, Maize MSP at Rs 2,410/Quintal).
+
+3.4 Non-Reloading Client-Side Voice Assistant
+- Driven entirely by the browser-native Web Speech API (`window.speechSynthesis`).
+- Operates client-side: Language switching (Hindi `hi-IN` / English `en-IN`), playback control, and status toggles execute without triggering Python script re-renders, preventing screen flashes, modal closures, and execution lag[cite: 13].
+
+
+================================================================================
+[SECTION 4: COMPLETE STEP-BY-STEP USER WORKFLOW & INSTRUCTIONS]
+(Reference Guide for Confused Users, Operators, and Field Demonstrators)
+
+STEP 1: ACCESS THE SYSTEM
+- Open the application URL on any smartphone, tablet, laptop, or desktop browser[cite: 13].
+- Language Selection: Use the top-right toggle switch to select between English (EN) and Hindi (HI)[cite: 13]. The entire UI text updates immediately[cite: 13].
+
+STEP 2: SPECIFY SOIL CHEMICAL PROFILE (3 INPUT OPTIONS)
+The user selects one of three data intake methods based on available field data[cite: 13]:
+- Method 1 (Laboratory Report Entry): If the farmer holds an official Soil Health Card, enter the numerical laboratory values for Nitrogen (N), Phosphorus (P), Potassium (K), and soil pH directly into the number fields[cite: 4, 13].
+- Method 2 (Regional Soil Type Averages): If lab reports are unavailable, pick the local soil category from the dropdown menu (e.g., Alluvial Soil of the Indo-Gangetic Plain, Black Cotton Soil, Red & Yellow Soil, or Sandy Loam). The system automatically populates verified agronomic N-P-K-pH baselines[cite: 13].
+- Method 3 (Visual Plant Diagnostic): If evaluating an existing standing plot exhibiting stress, select visible leaf symptoms (e.g., "Leaves Yellowing at Edges" for nitrogen deficiency, "Purple/Dark Leaves" for phosphorus deficiency, or "Burnt Leaf Edges" for potassium deficiency). The system calibrates soil nutrient estimates automatically[cite: 13].
+
+STEP 3: CONFIGURE VIRTUAL IOT & ATMOSPHERIC SENSORS
+Select the macro-climate and weather profile for the plot[cite: 13]:
+- Option A (Regional Dropdown): Choose the agro-climatic district from the list (e.g., Prayagraj, Varanasi, Kanpur, Lucknow, Jhansi, etc.)[cite: 13].
+- Option B (Automated Satellite Sync): Click "Auto-Fetch Satellite Data" or "Lock Prayagraj". The system pings live satellite cloud telemetry for live temperature and humidity while calculating calibrated seasonal rainfall[cite: 13].
+- Option C (Manual Override / City Search): Enter any specific municipality or mandal name and click "Search City" to retrieve localized atmospheric metrics[cite: 13].
+- Review the calibrated numbers: Verify Temperature (°C), Humidity (%), and Rainfall (mm)[cite: 13]. Manual adjustments can be made directly in the numeric input boxes if localized irrigation data warrants it[cite: 13].
+
+STEP 4: EXECUTE MASTER STRATEGY GENERATION
+- Click the green button labeled "GENERATE MASTER STRATEGY & FINANCIAL FORECAST"[cite: 13].
+- The application processes the 7-dimensional input vector, executes Random Forest probabilistic inferencing, queries the market pricing engine, builds the explainability matrix, and renders three strategy tabs:
+  * Primary Strategy (Top Recommendation)[cite: 13]
+  * Alternative Option A (Second-Ranked Alternate)[cite: 13]
+  * Alternative Option B (Third-Ranked Alternate)[cite: 13]
+
+STEP 5: REVIEW, LISTEN TO, AND ACT ON RESULTS
+- Review the Match Percentage: Observe the biological compatibility confidence score[cite: 13].
+- Examine Financial Metrics: Review Current APMC Modal Rate, Mandi Price Spread, and Estimated Gross Revenue per Hectare based on real yield benchmarks[cite: 13].
+- Review Market Analytics: Inspect the 7-day verified historical arrival/price ledger and the 14-day forward trend chart[cite: 13].
+- Review the Explainable AI Matrix: Inspect the compatibility indicators (Green/Yellow/Red badges) to understand where field parameters align or deviate from optimal biological ranges[cite: 13].
+- Launch Voice Advisor: Click the "Voice Advisor / बोलती सलाह" button to review key takeaway points or click "Play Voice" to hear the explanation spoken aloud in Hindi or English[cite: 13].
+
+
+================================================================================
+[SECTION 5: DETAILED INTERPRETATION OF RESULTS (EASY EXPLANATIONS)]
+
+5.1 Understanding the Match Percentage
+- What it means: The probability score calculated by the Random Forest model across all 22 candidate crops[cite: 13].
+- How to read it: A score above 85% indicates an exceptionally strong biological match where soil nutrients, moisture, and temperature naturally satisfy the crop's physiological requirements without extensive external intervention[cite: 13]. Scores between 60% and 84% represent viable secondary alternatives[cite: 13].
+
+5.2 Understanding APMC Modal Rates & Gross Revenue
+- Current Modal Rate: The most frequently occurring wholesale transaction price per quintal (100 kg) recorded across agricultural produce marketing committees[cite: 13].
+- Gross Revenue Formula: (Realistic Biological Yield in kg / 100) * Current Modal Price[cite: 13]. This provides a realistic financial baseline per hectare, helping farmers evaluate profitability before purchasing seed stocks[cite: 13].
+
+5.3 Interpreting the Explainable AI Matrix Badges
+- 🟢 PERFECT FIT: The farmer's soil or climate value falls safely within the optimal physiological tolerance band for this crop[cite: 13]. No corrective action is required.
+- 🟡 HIGH (Tolerable): The value is higher than ideal (e.g., elevated nitrogen or high humidity). The crop can tolerate this condition, but the farmer should avoid adding additional inputs of this factor[cite: 13].
+- 🔴 LOW (Action Needed): The value is below the crop's required minimum threshold[cite: 13]. This identifies the primary limiting factor (e.g., low potassium or insufficient moisture). The farmer must supplement this specific nutrient (e.g., apply MOP fertilizer or supplement with furrow irrigation) to achieve full yield potential[cite: 13].
+
+5.4 Biological Quality Assessment AI
+- Grain Weight & Protein Density (Cereals and Pulses): Evaluates whether nitrogen-phosphorus ratios support healthy panicle development and high-protein seed formation[cite: 13].
+- Fruit Brix & Shelf Life (Horticulture/Fruits): Assesses whether potassium levels and ambient sunshine are sufficient to build high sugar content (Brix) and sturdy skin membranes to resist transport spoilage[cite: 13].
+- Fiber Staple Length & Tensile Strength (Cash/Fiber Crops): Indicates whether moisture and nutrient timing will yield long, high-grade fibers that fetch top premiums at textile auctions[cite: 13].
+
+
+================================================================================
+[SECTION 6: CHATBOT SYSTEM PROMPTS & KNOWLEDGE RETRIEVAL DIRECTIVES]
+(Instructions for integrating this knowledge base into conversational LLM bots)
+
+6.1 Role Definition for the Chatbot
+You are "Kisan Sahayak AI", the official conversational intelligence agent of Agri-Predictor Pro. Your goal is to guide farmers, students, judges, and agricultural officers through every feature of the app, troubleshoot input confusions, explain agronomic calculations simply, and provide verified guidance on soil health and mandi trends.
+
+6.2 Behavioral Directives & Answering Protocols
+1. Conversational Tone: Warm, respectful, authoritative, and encouraging. Address Indian farmers respectfully (e.g., "Namaste Kisan Bhai" or "Dear Farmer").
+2. Language Matching: Detect the language of the user's prompt. If asked in Hindi or Hinglish, answer in fluent, conversational, easy-to-understand Hindi. If asked in English, answer in structured, crisp professional English.
+3. No Jargon Rule: Never confuse users with raw machine learning terminology (avoid ungrounded discussion of covariance shifts, hyperplanes, or Gini impurity). Translate ML concepts into tangible farm terms (e.g., explain "Random Forest" as "a council of 250 virtual agricultural scientists voting on the best decision for your soil").
+4. Diagnostic Guidance: If a user mentions their leaves are turning yellow, explain that this typically signals low Nitrogen and guide them to select "Visual Plant Diagnostic" in the app[cite: 13].
+5. Transparency on Data: Explain that market prices reflect official Agmarknet wholesale rates and verified Minimum Support Price (MSP) baselines, and that weather parameters use regional satellite telemetry paired with IMD seasonal baselines[cite: 13].
+================================================================================
