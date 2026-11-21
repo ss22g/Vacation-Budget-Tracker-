@@ -1,26 +1,16 @@
 {
-  "updated_at": "19 Nov 2026",
+  "updated_at": "21 Nov 2026",
   "source": "Agmarknet - Directorate of Marketing & Inspection, GoI",
   "commodities": {
     "rice": {
       "commodity_name": "Paddy(Common)",
       "msp_2026_27": 2441.0,
-      "current_price": 2000.0,
-      "min_price": 2000.0,
-      "max_price": 2000.0,
+      "current_price": 3749.73,
+      "min_price": 3300.0,
+      "max_price": 4000.0,
       "arrival_mt": 1816132.2,
       "yield_kg_ha": 3600,
       "history": [
-        {
-          "date": "12 Oct 2026",
-          "price": 2785.2,
-          "arrival": 18900.0
-        },
-        {
-          "date": "13 Oct 2026",
-          "price": 2790.0,
-          "arrival": 17400.5
-        },
         {
           "date": "14 Oct 2026",
           "price": 2795.5,
@@ -43,7 +33,17 @@
         },
         {
           "date": "19 Nov 2026",
-          "price": 2000.0,
+          "price": 3700.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "20 Nov 2026",
+          "price": 2510.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "21 Nov 2026",
+          "price": 3749.73,
           "arrival": 120.0
         }
       ]
@@ -51,22 +51,12 @@
     "wheat": {
       "commodity_name": "Wheat",
       "msp_2026_27": 2585.0,
-      "current_price": 2700.0,
-      "min_price": 2700.0,
-      "max_price": 2700.0,
+      "current_price": 2600.0,
+      "min_price": 2600.0,
+      "max_price": 2600.0,
       "arrival_mt": 17855437.71,
       "yield_kg_ha": 3500,
       "history": [
-        {
-          "date": "12 Oct 2026",
-          "price": 2525.0,
-          "arrival": 52100.0
-        },
-        {
-          "date": "13 Oct 2026",
-          "price": 2520.0,
-          "arrival": 49000.0
-        },
         {
           "date": "14 Oct 2026",
           "price": 2518.0,
@@ -89,7 +79,17 @@
         },
         {
           "date": "19 Nov 2026",
-          "price": 2700.0,
+          "price": 2600.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "20 Nov 2026",
+          "price": 2600.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "21 Nov 2026",
+          "price": 2600.0,
           "arrival": 120.0
         }
       ]
@@ -97,22 +97,12 @@
     "maize": {
       "commodity_name": "Maize",
       "msp_2026_27": 2410.0,
-      "current_price": 2457.31,
-      "min_price": 2450.0,
-      "max_price": 2460.0,
+      "current_price": 2891.22,
+      "min_price": 2400.0,
+      "max_price": 2900.0,
       "arrival_mt": 445586.26,
       "yield_kg_ha": 3200,
       "history": [
-        {
-          "date": "12 Oct 2026",
-          "price": 2080.5,
-          "arrival": 9800.0
-        },
-        {
-          "date": "13 Oct 2026",
-          "price": 2075.0,
-          "arrival": 10200.0
-        },
         {
           "date": "14 Oct 2026",
           "price": 2068.0,
@@ -136,6 +126,16 @@
         {
           "date": "19 Nov 2026",
           "price": 2457.31,
+          "arrival": 120.0
+        },
+        {
+          "date": "20 Nov 2026",
+          "price": 2237.6,
+          "arrival": 120.0
+        },
+        {
+          "date": "21 Nov 2026",
+          "price": 2891.22,
           "arrival": 120.0
         }
       ]
@@ -235,22 +235,12 @@
     "chickpea": {
       "commodity_name": "Gram Raw(Chholia)",
       "msp_2026_27": 5650.0,
-      "current_price": 6024.0,
-      "min_price": 6024.0,
-      "max_price": 6024.0,
+      "current_price": 11650.0,
+      "min_price": 11650.0,
+      "max_price": 11650.0,
       "arrival_mt": 35400.0,
       "yield_kg_ha": 1200,
       "history": [
-        {
-          "date": "12 Oct 2026",
-          "price": 5820.0,
-          "arrival": 1300.0
-        },
-        {
-          "date": "13 Oct 2026",
-          "price": 5835.0,
-          "arrival": 1420.0
-        },
         {
           "date": "14 Oct 2026",
           "price": 5840.0,
@@ -273,7 +263,17 @@
         },
         {
           "date": "19 Nov 2026",
-          "price": 6024.0,
+          "price": 8047.69,
+          "arrival": 120.0
+        },
+        {
+          "date": "20 Nov 2026",
+          "price": 7950.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "21 Nov 2026",
+          "price": 11650.0,
           "arrival": 120.0
         }
       ]
@@ -287,16 +287,6 @@
       "arrival_mt": 18200.0,
       "yield_kg_ha": 1100,
       "history": [
-        {
-          "date": "12 Oct 2026",
-          "price": 8060.0,
-          "arrival": 720.0
-        },
-        {
-          "date": "13 Oct 2026",
-          "price": 8100.0,
-          "arrival": 780.0
-        },
         {
           "date": "14 Oct 2026",
           "price": 8120.0,
@@ -321,28 +311,28 @@
           "date": "19 Nov 2026",
           "price": 1250.0,
           "arrival": 120.0
+        },
+        {
+          "date": "20 Nov 2026",
+          "price": 1150.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "21 Nov 2026",
+          "price": 1250.0,
+          "arrival": 120.0
         }
       ]
     },
     "blackgram": {
       "commodity_name": "Black Gram (Urd Beans)",
       "msp_2026_27": 7400.0,
-      "current_price": 1100.0,
-      "min_price": 1000.0,
+      "current_price": 1150.0,
+      "min_price": 1100.0,
       "max_price": 1200.0,
       "arrival_mt": 14200.0,
       "yield_kg_ha": 900,
       "history": [
-        {
-          "date": "12 Oct 2026",
-          "price": 7580.0,
-          "arrival": 580.0
-        },
-        {
-          "date": "13 Oct 2026",
-          "price": 7610.0,
-          "arrival": 610.0
-        },
         {
           "date": "14 Oct 2026",
           "price": 7630.0,
@@ -365,7 +355,17 @@
         },
         {
           "date": "19 Nov 2026",
-          "price": 1100.0,
+          "price": 700.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "20 Nov 2026",
+          "price": 1150.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "21 Nov 2026",
+          "price": 1150.0,
           "arrival": 120.0
         }
       ]
@@ -373,17 +373,12 @@
     "mungbean": {
       "commodity_name": "Green Gram (Moong)",
       "msp_2026_27": 8682.0,
-      "current_price": 7194.0,
-      "min_price": 6500.0,
-      "max_price": 7194.0,
+      "current_price": 10050.5,
+      "min_price": 9901.0,
+      "max_price": 10200.0,
       "arrival_mt": 12300.0,
       "yield_kg_ha": 850,
       "history": [
-        {
-          "date": "11 Oct 2026",
-          "price": 8750.0,
-          "arrival": 430.0
-        },
         {
           "date": "12 Oct 2026",
           "price": 8790.0,
@@ -413,23 +408,23 @@
           "date": "25 Oct 2026",
           "price": 7194.0,
           "arrival": 120.0
+        },
+        {
+          "date": "21 Nov 2026",
+          "price": 10050.5,
+          "arrival": 120.0
         }
       ]
     },
     "lentil": {
       "commodity_name": "Masur Dal",
       "msp_2026_27": 6700.0,
-      "current_price": 5501.0,
-      "min_price": 5501.0,
-      "max_price": 5501.0,
+      "current_price": 8200.0,
+      "min_price": 8150.0,
+      "max_price": 8250.0,
       "arrival_mt": 15400.0,
       "yield_kg_ha": 950,
       "history": [
-        {
-          "date": "12 Oct 2026",
-          "price": 6800.0,
-          "arrival": 580.0
-        },
         {
           "date": "13 Oct 2026",
           "price": 6820.0,
@@ -459,23 +454,23 @@
           "date": "19 Nov 2026",
           "price": 5501.0,
           "arrival": 120.0
+        },
+        {
+          "date": "20 Nov 2026",
+          "price": 8200.0,
+          "arrival": 120.0
         }
       ]
     },
     "pomegranate": {
       "commodity_name": "Pomegranate",
       "msp_2026_27": null,
-      "current_price": 8960.0,
-      "min_price": 8950.0,
-      "max_price": 8980.0,
+      "current_price": 6150.0,
+      "min_price": 6100.0,
+      "max_price": 6200.0,
       "arrival_mt": 8900.0,
       "yield_kg_ha": 10000,
       "history": [
-        {
-          "date": "11 Oct 2026",
-          "price": 6980.0,
-          "arrival": 310.0
-        },
         {
           "date": "12 Oct 2026",
           "price": 7050.0,
@@ -503,7 +498,12 @@
         },
         {
           "date": "19 Nov 2026",
-          "price": 8960.0,
+          "price": 4600.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "20 Nov 2026",
+          "price": 6150.0,
           "arrival": 120.0
         }
       ]
@@ -512,21 +512,11 @@
       "commodity_name": "Banana",
       "msp_2026_27": null,
       "current_price": 1460.0,
-      "min_price": 1440.0,
-      "max_price": 1480.0,
+      "min_price": 1450.0,
+      "max_price": 1490.0,
       "arrival_mt": 48900.0,
       "yield_kg_ha": 35000,
       "history": [
-        {
-          "date": "12 Oct 2026",
-          "price": 1815.0,
-          "arrival": 2040.0
-        },
-        {
-          "date": "13 Oct 2026",
-          "price": 1830.0,
-          "arrival": 2100.0
-        },
         {
           "date": "14 Oct 2026",
           "price": 1840.0,
@@ -549,6 +539,16 @@
         },
         {
           "date": "19 Nov 2026",
+          "price": 1490.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "20 Nov 2026",
+          "price": 2000.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "21 Nov 2026",
           "price": 1460.0,
           "arrival": 120.0
         }
@@ -603,22 +603,12 @@
     "apple": {
       "commodity_name": "Apple",
       "msp_2026_27": null,
-      "current_price": 7750.0,
-      "min_price": 7700.0,
-      "max_price": 7800.0,
+      "current_price": 8670.0,
+      "min_price": 8650.0,
+      "max_price": 8690.0,
       "arrival_mt": 31200.0,
       "yield_kg_ha": 12000,
       "history": [
-        {
-          "date": "12 Oct 2026",
-          "price": 7280.0,
-          "arrival": 1050.0
-        },
-        {
-          "date": "13 Oct 2026",
-          "price": 7320.0,
-          "arrival": 1100.0
-        },
         {
           "date": "14 Oct 2026",
           "price": 7360.0,
@@ -641,7 +631,17 @@
         },
         {
           "date": "19 Nov 2026",
-          "price": 7750.0,
+          "price": 8700.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "20 Nov 2026",
+          "price": 8600.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "21 Nov 2026",
+          "price": 8670.0,
           "arrival": 120.0
         }
       ]
@@ -741,17 +741,12 @@
     "papaya": {
       "commodity_name": "Papaya",
       "msp_2026_27": null,
-      "current_price": 1600.0,
-      "min_price": 1500.0,
-      "max_price": 1700.0,
+      "current_price": 1150.0,
+      "min_price": 1100.0,
+      "max_price": 1200.0,
       "arrival_mt": 34500.0,
       "yield_kg_ha": 40000,
       "history": [
-        {
-          "date": "11 Oct 2026",
-          "price": 1600.0,
-          "arrival": 1180.0
-        },
         {
           "date": "12 Oct 2026",
           "price": 1620.0,
@@ -779,7 +774,12 @@
         },
         {
           "date": "19 Nov 2026",
-          "price": 1600.0,
+          "price": 1105.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "20 Nov 2026",
+          "price": 1150.0,
           "arrival": 120.0
         }
       ]
@@ -787,17 +787,12 @@
     "watermelon": {
       "commodity_name": "Water Melon",
       "msp_2026_27": null,
-      "current_price": 800.0,
-      "min_price": 600.0,
-      "max_price": 1200.0,
+      "current_price": 2000.0,
+      "min_price": 1800.0,
+      "max_price": 2100.0,
       "arrival_mt": 42000.0,
       "yield_kg_ha": 25000,
       "history": [
-        {
-          "date": "11 Oct 2026",
-          "price": 1220.0,
-          "arrival": 1490.0
-        },
         {
           "date": "12 Oct 2026",
           "price": 1230.0,
@@ -826,6 +821,11 @@
         {
           "date": "19 Nov 2026",
           "price": 800.0,
+          "arrival": 120.0
+        },
+        {
+          "date": "20 Nov 2026",
+          "price": 2000.0,
           "arrival": 120.0
         }
       ]

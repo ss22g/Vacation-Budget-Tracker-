@@ -1,5 +1,8 @@
 import os
 import re
+import io
+import wave
+import array
 import json
 import hashlib
 from datetime import datetime
@@ -12,6 +15,8 @@ from google.genai import types
 # ==========================================
 # 1. GEMINI CLIENT & RAG LOADER
 # ==========================================
+ENABLE_VOICE_INPUT = False  # Change to False to hide mic input
+
 def get_gemini_client():
     api_key = None
     try:
@@ -169,44 +174,61 @@ def ask_kisan_ai_text(user_query: str) -> str:
         return f"Maaf kijiye, abhi AI server se connect nahi ho paaya. Kripya apni GEMINI_API_KEY check karein. ({e})"
 
 
-def ask_kisan_ai_voice(audio_bytes: bytes) -> tuple[str, str]:
-    """Processes English, Hindi, or Hinglish audio directly via Gemini 2.5 Flash."""
-    client = get_gemini_client()
-    contents = _build_history_contents()
-
-    voice_prompt = (
-        "Listen carefully to the user's voice message (English, Hindi, or Hinglish). "
-        "Return a valid JSON object with exactly two string keys:\n"
-        '1. "transcript": exact text of what the user said in their language/script.\n'
-        '2. "reply": your helpful Kisan Sahayak AI response matching their language/script.'
-    )
-    contents.append(
-        types.Content(
-            role="user",
-            parts=[
-                types.Part.from_bytes(data=audio_bytes, mime_type="audio/wav"),
-                types.Part.from_text(text=voice_prompt),
-            ],
-        )
-    )
-
+def _is_audio_silent(audio_bytes: bytes, threshold: int = 250) -> bool:
+    """Detects muted or near-silent mic recordings (Python 3.14 safe)."""
     try:
-        response = client.models.generate_content(
+        with wave.open(io.BytesIO(audio_bytes), "rb") as wf:
+            frames = wf.readframes(wf.getnframes())
+            if wf.getsampwidth() == 2 and frames:
+                samples = array.array("h")
+                samples.frombytes(frames)
+                peak = max(abs(s) for s in samples) if samples else 0
+                return peak < threshold
+    except Exception:
+        pass
+    return len(audio_bytes) < 2000
+
+
+def ask_kisan_ai_voice(audio_bytes: bytes) -> tuple[str, str]:
+    """Step 1: Pure verbatim transcription (zero RAG bias). Step 2: Answer via Kisan AI."""
+    if _is_audio_silent(audio_bytes):
+        return (
+            "(No sound detected)",
+            "Mic se koi aawaz record nahi hui. Kripya browser mic permission check karein ya type karke poochein.",
+        )
+
+    client = get_gemini_client()
+    try:
+        trans_res = client.models.generate_content(
             model="gemini-3.1-flash-lite",
-            contents=contents,
+            contents=[
+                types.Part.from_bytes(data=audio_bytes, mime_type="audio/wav"),
+                types.Part.from_text(
+                    text=(
+                        "Transcribe the exact words spoken in this audio verbatim. "
+                        "The speaker may use English, Hindi, or Hinglish. "
+                        "Output ONLY the exact spoken words. Do not answer and do not guess. "
+                        "If there is no clear speech, output exactly: UNCLEAR"
+                    )
+                ),
+            ],
             config=types.GenerateContentConfig(
-                system_instruction=build_system_instruction(),
-                response_mime_type="application/json",
-                temperature=0.4,
+                temperature=0.0,
                 thinking_config=types.ThinkingConfig(thinking_budget=0),
             ),
         )
-        parsed = json.loads(response.text)
-        return parsed.get("transcript", "🎙️ Voice message"), parsed.get("reply", "")
+        transcript = (trans_res.text or "").strip()
     except Exception as e:
-        return "🎙️ Voice message", f"Aawaz process karne mein dikkat aayi. Kripya dobara bolein. ({e})"
+        return "(Voice error)", f"Aawaz process karne mein dikkat aayi. Kripya type karke poochein. ({e})"
 
+    if not transcript or transcript.upper() == "UNCLEAR":
+        return (
+            "(Unclear audio)",
+            "Aawaz saaf sunai nahi di. Kripya thoda saaf bolein ya neeche type karke poochein.",
+        )
 
+    reply = ask_kisan_ai_text(transcript)
+    return transcript, reply
 # ==========================================
 # 5. ZERO-RELOAD CLIENT-SIDE VOICE PLAYER
 # ==========================================
@@ -379,7 +401,7 @@ def render_kisan_chatbot():
                 )
                 submitted = btn_col.form_submit_button("➤", use_container_width=True)
 
-            audio_file = st.audio_input("🎙️ Bol kar poochein (Hindi / Hinglish / English)", sample_rate=16000, key=f"kisan_mic_{st.session_state.get('mic_counter', 0)}")
+            audio_file = st.audio_input("🎙️ Bol kar poochein (Hindi / Hinglish / English)", sample_rate=16000, key=f"kisan_mic_{st.session_state.get('mic_counter', 0)}") if ENABLE_VOICE_INPUT else None
 
             active_text = quick_prompt or (typed_prompt.strip() if submitted and typed_prompt.strip() else None)
             if active_text:
